@@ -1,0 +1,42 @@
+.Window{
+  margin: o auto;
+  height: auto;
+  /*margin-top: 25px;*/
+  border-radius: 5%;
+}
+
+.Box {
+  margin: o auto;
+  width: 600px;
+  padding: 0 0 1px 0;
+  background: #ffffff;
+  border: 1px solid #202A62;
+}
+
+.buttonClose {
+  color: #fff !important;
+}
+
+.ButtonExport{
+  text-align: center;
+  width: 180px;
+  margin-left: 7px !important;
+  margin-right: 7px !important;
+  margin-bottom: 15px !important;
+}
+
+.WindowTitle { 
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 10px 5px 0px 0px;
+  background: #202A62;
+}
+
+.download {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 0 !important;
+}
+  

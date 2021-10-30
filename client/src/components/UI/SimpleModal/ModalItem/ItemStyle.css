@@ -1,0 +1,67 @@
+.TextField-2 {
+  /*
+  use
+  33.33% grid of 3
+  25%    grid of 4
+  20%    grid of 5
+  16.66% grid of 6
+  */
+  flex: 0 0 calc(50% - 20px);
+  margin: 15px 10px 0 10px;
+  width: 100% !important;
+  display: inline-block;
+}
+.TextField-3 {
+  /*
+  use
+  33.33% grid of 3
+  25%    grid of 4
+  20%    grid of 5
+  16.66% grid of 6
+  */
+  flex: 0 0 calc(33.3% - 20px);
+  margin: 15px 10px 0 10px;
+  width: 100% !important;
+  display: inline-block;
+}
+
+.TextField label {
+  color: #202A62;
+}
+
+.TextField div label {
+  color: #202A62 !important;
+}
+
+.TextField div div fieldset {
+  border-color: #202A62 !important;
+}
+
+.TextField input {
+  color: #202A62 !important;
+}
+
+.TextField textarea {
+    color: #202A62;
+}
+
+.TextField fieldset {
+  border-color: #202A62;
+}
+
+.TextField fieldset:hover {
+  border-color: #ffffff !important;
+}
+
+.TextField svg {
+  color: #202A62;
+}
+
+.TextField button{
+  margin: 0;
+}
+
+
+.TextField div div {
+  color: #202A62;
+}
