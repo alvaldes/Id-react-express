@@ -78,7 +78,7 @@ const Places = (props) => {
   Axios.defaults.withCredentials = true;
   useEffect(() => {
     // props.onStoreSelected([]);
-    Axios.get("http://localhost:3001/getusers").then((response) => {
+    Axios.get("http://localhost:3001/users").then((response) => {
       if(response.data.users){
         setRows(response.data.users);
         setReload(false);
@@ -135,7 +135,7 @@ const Places = (props) => {
   }
   const handleAddSubmit = () => {
     if(AddValidate){
-      Axios.post("http://localhost:3001/user/add", {
+      Axios.post("http://localhost:3001/users/add", {
       name: name,
       username: username,
       email: email,
@@ -153,7 +153,7 @@ const Places = (props) => {
   };
   const handleEditSubmit = () => {
     if(AddValidate){
-      Axios.post("http://localhost:3001/user/edit", {
+      Axios.post("http://localhost:3001/users/edit", {
         id: selectedId,
         name: name,
         username: username,
@@ -176,7 +176,7 @@ const Places = (props) => {
       return s.id;
     });
     var stringId = JSON.stringify(filterId);
-    Axios.post("http://localhost:3001/user/delete", {
+    Axios.post("http://localhost:3001/users/delete", {
         id: stringId,
       }).then((response) => {
         if (response.data.isOK) {

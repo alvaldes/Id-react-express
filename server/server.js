@@ -1,12 +1,20 @@
 const express = require('express');
 require("dotenv").config();
 const cors = require("cors");
-const{pool}=require("./dbConfig");
+const{pool}=require("./Database/dbConfig");
 const session= require("express-session");
 const cookieParser = require("cookie-parser");
 const jwt = require('jsonwebtoken');
 const bcrypt= require("bcrypt");
 const saltRounds = 10;
+
+var userRouter = require('./Routes/users')
+var placesRouter = require('./Routes/places')
+var publicationsRouter = require('./Routes/publications')
+var coursesRouter = require('./Routes/courses')
+var productionsRouter = require('./Routes/productions')
+var consumptonsRouter = require('./Routes/consumptions')
+var profesorsRouter = require('./Routes/profesors')
 
 //Midelweare
 const app = express();
@@ -32,7 +40,16 @@ app.use(session({
 }));
 
 //ROUTES
-  //AUTH
+app.use("/users",userRouter);
+app.use("/places",placesRouter);
+app.use("/publications",publicationsRouter);
+app.use("/courses",coursesRouter);
+app.use("/productions",productionsRouter);
+app.use("/consumptions",consumptonsRouter);
+app.use("/profesors",profesorsRouter);
+
+
+//AUTH
 app.post("/register", (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
@@ -119,74 +136,7 @@ app.post("/login", (req, res) => {
     }
   );
 });
-//USERS
-app.post("/user/add", (req, res) => {
-  const name = req.body.name;
-  const username = req.body.username;
-  const email = req.body.email;
-  const password = req.body.password;
-  const role = req.body.role;
-  bcrypt.hash(password, saltRounds, (err, hash) => {
-    if (err) {
-      console.log(err);
-    }
-    pool.query(
-      "INSERT INTO users (name, username, email, password, role) VALUES ($1,$2,$3,$4,$5)",
-      [name,username,email, hash, role],
-      (err, result) => {
-        if (err) {
-          console.log(err);
-        }else{
-          res.json({isOK:true});
-        }
-      }
-    );
-  });
-});
 
-app.post("/user/edit", (req, res) => {
-    const id = req.body.id;
-    const name = req.body.name;
-    const username = req.body.username;
-    const email = req.body.email;
-    const role = req.body.role;
-    pool.query(
-      "UPDATE users SET name=$2, username=$3, email=$4, role=$5 WHERE id = $1;",
-      [id,name,username,email, role],
-      (err, result) => {
-      if (err) {
-        console.log(err);
-      }else{
-        res.json({isOK:true});
-      }
-      }
-    );
-});
-app.post("/user/delete", (req, res) => {
-  const id= JSON.parse(req.body.id);
-  const sql = "DELETE FROM users WHERE id IN ("+id.toString()+")";
-  pool.query(sql,
-    (err, result) => {
-    if (err) {
-      console.log(err);
-    }else{
-      res.json({isOK:true});
-    }
-    }
-  );
-});
-app.get("/getusers", (req, res) => {
-  pool.query(
-    "SELECT * FROM users",
-    (err, result) => {
-      if (err) {
-        res.send({ err: err });
-      }
-      if (result.rowCount > 0) {
-        res.json({ users:result.rows });
-      }
-    }
-  );
-});
+
 // This displays message that the server running and listening to specified port
 app.listen(port, () => console.log(`running server`));

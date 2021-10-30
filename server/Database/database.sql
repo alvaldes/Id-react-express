@@ -5,7 +5,7 @@
 -- Dumped from database version 13.0
 -- Dumped by pg_dump version 13.0
 
--- Started on 2021-10-29 20:14:44
+-- Started on 2021-10-30 11:15:58
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -77,10 +77,8 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: admin
 --
 
-COPY public.users (id, name, username, email, password, role) FROM stdin;
-6	Administrador	admin	admin@email.com	$2b$10$pdrvVfZ6T89jKIhkjy4SL.SyRh7G8u6aamFmjr3ZbOgoyCXNTtRe.	Administrador
-9	Angel Valdés	alvaldes	alvaldes@gmail.com	$2b$10$DkIcyEaTELdq43/kifpSseEXSqjQCi3/JDbNInBm6kMJa2nv9REV6	Administrador
-\.
+INSERT INTO public.users VALUES (6, 'Administrador', 'admin', 'admin@email.com', '$2b$10$pdrvVfZ6T89jKIhkjy4SL.SyRh7G8u6aamFmjr3ZbOgoyCXNTtRe.', 'Administrador');
+INSERT INTO public.users VALUES (9, 'Angel Valdés', 'alvaldes', 'alvaldes@gmail.com', '$2b$10$DkIcyEaTELdq43/kifpSseEXSqjQCi3/JDbNInBm6kMJa2nv9REV6', 'Administrador');
 
 
 --
@@ -110,7 +108,7 @@ ALTER TABLE ONLY public.users
     ADD CONSTRAINT users_username_email_key UNIQUE (username, email);
 
 
--- Completed on 2021-10-29 20:14:44
+-- Completed on 2021-10-30 11:15:58
 
 --
 -- PostgreSQL database dump complete
