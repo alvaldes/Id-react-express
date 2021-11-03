@@ -1,6 +1,8 @@
 const express = require('express');
 var router = express.Router();
 const{pool}=require("../Database/dbConfig");
+const bcrypt= require("bcrypt");
+const saltRounds = 10;
 
 
 router.get("/", (req, res) => {

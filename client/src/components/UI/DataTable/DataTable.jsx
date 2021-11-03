@@ -131,6 +131,7 @@ function DataTable(props) {
     <Box sx={{ width: "100%" }}>
       <Paper sx={{ width: "100%", mb: 2, display: "grid" }}>
         <EnhancedTableToolbar
+          label = {props.label}
           numSelected={props.selected.length}
           modalAdd={props.modalAdd}
           modalFilter={props.modalFilter}

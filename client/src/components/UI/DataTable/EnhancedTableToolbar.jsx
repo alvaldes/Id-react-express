@@ -49,7 +49,7 @@ const EnhancedTableToolbar = (props) => {
             id="tableTitle"
             component="div"
           >
-            Lugares Geoespaciales
+            {props.label}
           </Typography>
         )}
         {props.children}

@@ -12,6 +12,8 @@ import Publications from './pages/Publications/Publications'
 import AboutUS from './pages/AboutUS/Aboutus'
 import GetData from './pages/GetData/GetData'
 import Login from './components/Auth/Login'
+import Users from './pages/Users/Users'
+import Events from './pages/Events/Events'
 import Register from './components/Auth/Register'
 import NotFound from './pages/NotFound/NotFound.jsx'
 
@@ -70,6 +72,9 @@ class App extends Component {
             <PrivateRoute exact path="/production" ><Production/></PrivateRoute>
             <PrivateRoute exact path="/professors" ><Professors/></PrivateRoute>
             <PrivateRoute exact path="/publications" ><Publications/></PrivateRoute>
+            <PrivateRoute exact path="/users" ><Users/></PrivateRoute>
+            <PrivateRoute exact path="/events" ><Events/></PrivateRoute>
+            {/* Not Found */}
             <Route>
               <NotFound height={this.state.height} />
             </Route>
