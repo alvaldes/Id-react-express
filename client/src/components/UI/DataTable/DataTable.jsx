@@ -188,17 +188,18 @@ function DataTable(props) {
                           }}
                         />
                       </TableCell>
-                      <TableCell
+                      {/* For para rellenar la fila */}
+                      {JsonToArray(row).map((value, i) => {
+                        if(i===0){
+                          return <TableCell
                         component="th"
                         id={labelId}
                         scope="row"
                         padding="none"
                       >
-                        {row.id}
-                      </TableCell>
-                      {/* For para rellenar la fila */}
-                      {JsonToArray(row).map((value, i) => {
-                        if (i > 0) {
+                        {value}
+                      </TableCell>;
+                        }else if (i > 0) {
                           return <TableCell align="right">{value}</TableCell>;
                         } else {
                           return null;

@@ -18,6 +18,7 @@ const ModalItemRequired = (props) => {
           helperText={props.errorN===2 ? props.error : null}
           disabled = {props.disabled}
           onChange={props.onChange}
+          // inputProps={props.numeric ? { inputMode: 'numeric', pattern: '[0-9]*' }: { inputMode: 'text' }}
         />
       </p>
     );

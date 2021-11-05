@@ -21,7 +21,7 @@ import DeleteModal from '../../components/UI/DeleteModal/DeleteModal.jsx';
 import * as actionTypes from '../../store/actions';
 
 const Users = (props) => {
-  document.title = "Id.uci.cu/Lugares";
+  document.title = "Id.uci.cu/Usuarios";
 
   const [rows, setRows] = useState([]);
   const [name, setName] = useState('');

@@ -13,6 +13,7 @@ var placesRouter = require('./Routes/places')
 var publicationsRouter = require('./Routes/publications')
 var coursesRouter = require('./Routes/courses')
 var productionsRouter = require('./Routes/productions')
+var eventsRouter = require('./Routes/events')
 var consumptonsRouter = require('./Routes/consumptions')
 var profesorsRouter = require('./Routes/profesors')
 
@@ -45,6 +46,7 @@ app.use("/places",placesRouter);
 app.use("/publications",publicationsRouter);
 app.use("/courses",coursesRouter);
 app.use("/productions",productionsRouter);
+app.use("/events",eventsRouter);
 app.use("/consumptions",consumptonsRouter);
 app.use("/profesors",profesorsRouter);
 
