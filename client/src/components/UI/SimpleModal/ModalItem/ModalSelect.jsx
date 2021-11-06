@@ -3,8 +3,9 @@ import './ItemStyle.css'
 import { FormControl, InputLabel, Select } from '@mui/material'
 
 const ModalSelect = (props) =>{
+    const classes = props.TresColumn?"TextField-3":"TextField-2";
     return (
-        <p className="TextField" sx={{ fullWidth: `${props.value}%` }}>
+        <p className={classes} sx={{ fullWidth: `${props.value}%` }}>
             <FormControl fullWidth>
                 <InputLabel id={props.id}>{props.label}</InputLabel>
                 <Select 
