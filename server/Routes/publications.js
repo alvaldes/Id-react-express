@@ -3,7 +3,8 @@ var router = express.Router();
 const{pool}=require("../Database/dbConfig");
 
 router.get("/", (req, res) => {
-    pool.query("SELECT * FROM publications", (err, result) => {
+    pool.query("SELECT A.id_pub, A.nivel_mes, A.titulo, A.tipo_fuente, A.fuente, A.indexado, B.idlugar, B.nombrelugar, A.url FROM publications as A, lugar as B WHERE A.areaidlugar=B.idlugar",
+    (err, result) => {
         if (err) {
             res.send({ err: err });
         }
